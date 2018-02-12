@@ -1,0 +1,49 @@
+img {
+	cursor: pointer;
+	width:19.5%;
+	margin:auto;
+}
+
+body {
+	width:100%;
+	background-image: url("images/colosseum.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+h2 {
+	font-size:6em;
+	background-color: rgba(0, 0, 255, 0.5);
+	text-align: center;
+	padding:15px;
+
+}
+
+#mainBody {
+	margin:auto;
+}
+
+#attackerArea {
+	display:none;
+}
+
+#attackerArea {
+	display:none;
+}
+
+#attackBtn {
+	cursor: pointer;
+	background-color: rgba(0, 200, 150, 1);
+	text-align: center;
+	width:75px;
+	padding:20px;
+}
+
+#choseFrom {
+
+}
+
+#defeatedArea {
+	display:none;
+}
+
