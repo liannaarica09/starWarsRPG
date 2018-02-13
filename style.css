@@ -1,12 +1,10 @@
-img {
-	cursor: pointer;
-	width:19.5%;
-	margin:auto;
+* {
+	box-sizing: border-box;
 }
 
 body {
 	width:100%;
-	background-image: url("images/colosseum.jpg");
+	background-image: url("images/dark_wood.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -16,7 +14,12 @@ h2 {
 	background-color: rgba(0, 0, 255, 0.5);
 	text-align: center;
 	padding:15px;
+}
 
+img {
+	cursor: pointer;
+	width:100%;
+	margin:auto;
 }
 
 #mainBody {
@@ -24,26 +27,61 @@ h2 {
 }
 
 #attackerArea {
-	display:none;
+	float:left;
 }
 
-#attackerArea {
-	display:none;
+#defenderArea {
+	float:right;
+}
+
+#attackerArea,
+#defenderArea {
+	width:50%;
 }
 
 #attackBtn {
+	margin: 0 auto;
+	text-align: center;
 	cursor: pointer;
 	background-color: rgba(0, 200, 150, 1);
-	text-align: center;
-	width:75px;
+	width:10%;
 	padding:20px;
+	clear:both;
+	position:absolute;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #choseFrom {
+	width:100%;
+	text-align: center;
+	clear:both;
+	position:absolute;
+	bottom:100px;
+}
+
+.villian {
+	display:inline-block;
+	width: 19.2%;
+	background-color: rgba(255, 255, 255, 1);
 
 }
 
-#defeatedArea {
+#alertArea {
+	background-color: rgba(255, 0, 0, 1);
+	position:absolute;
+	padding:10%;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.invisible {
 	display:none;
+}
+
+.visible {
+	display:initial;
 }
 
