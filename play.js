@@ -2,32 +2,41 @@
 $(document).ready(function() {
 
 	var voldy = {
-		health:5,
-		attack:8,
-		counterAttack:100,
+		name:"Voldemort",
+		id:"voldy",
+		health:120,
+		attack:4,
+		counterAttack:80,
 	};
 
 	var magneto = {
-		health:5,
-		attack:100,
-		counterAttack:5,
+		name:"Magneto",
+		health:150,
+		attack:10,
+		counterAttack:50,
 	};
 
 	var vader = {
-		health:5,
-		attack:150,
-		counterAttack:100,
+		name:"Darth Vader",
+		id:"vader",
+		health:180,
+		attack:11,
+		counterAttack:45,
 	};
 
 	var saruman = {
-		health:5,
-		attack:180,
-		counterAttack:100,
+		name:"Saruman",
+		id:"saruman",
+		health:100,
+		attack:12,
+		counterAttack:70,
 	};
 
 	var loki = {
-		health:500,
-		attack:100,
+		name:"Loki",
+		id: "loki",
+		health:200,
+		attack:15,
 		counterAttack:100,
 	};
 
@@ -147,13 +156,26 @@ $(document).ready(function() {
 		defenderHealth -= currentAttckPwr;
 		console.log("defender health is " + defenderHealth);
 
+		console.log(defendingVillian.id);
+		writeStats(defendingVillian.id, defenderHealth);
+
 		//attack attacker
 		console.log("Counter attack!");
 		attackerHealth -= defendingVillian.counterAttack;
 		console.log("attacker health is " + attackerHealth);
 
+		console.log(attackingVillian.id);
+		writeStats(attackingVillian.id, attackerHealth);
+
+		alert(attackingVillian.name + " did " + currentAttckPwr + " damage. " + defendingVillian.name + " did " + defendingVillian.counterAttack + " damage.", 2000);
+
 		defeatCheck();
 	});
+
+	function writeStats(villian, stat){
+		console.log("writeStats trigered");
+		$("#" + villian).find("p").html(stat);
+	}
 
 	//Win check 
 	function defeatCheck(){
@@ -163,7 +185,7 @@ $(document).ready(function() {
 			defenderChosen = false;
 			winCheck();
 		}
-		else if (attackerHealth <= 0) {
+		if (attackerHealth <= 0) {
 			alert("You lost! Try again...", 4000);
 			reset();
 		}
