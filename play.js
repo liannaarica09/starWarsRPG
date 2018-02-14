@@ -5,15 +5,16 @@ $(document).ready(function() {
 		name:"Voldemort",
 		id:"voldy",
 		health:120,
-		attack:4,
-		counterAttack:80,
+		attack:15,
+		counterAttack:7,
 	};
 
 	var magneto = {
 		name:"Magneto",
+		id:"magneto",
 		health:150,
 		attack:10,
-		counterAttack:50,
+		counterAttack:9,
 	};
 
 	var vader = {
@@ -21,23 +22,23 @@ $(document).ready(function() {
 		id:"vader",
 		health:180,
 		attack:11,
-		counterAttack:45,
+		counterAttack:13,
 	};
 
 	var saruman = {
 		name:"Saruman",
 		id:"saruman",
 		health:100,
-		attack:12,
-		counterAttack:70,
+		attack:15,
+		counterAttack:14,
 	};
 
 	var loki = {
 		name:"Loki",
 		id: "loki",
 		health:200,
-		attack:15,
-		counterAttack:100,
+		attack:13,
+		counterAttack:17,
 	};
 
 	var attackingVillian;
@@ -218,6 +219,10 @@ $(document).ready(function() {
 		$(".villian").each(function() {
 			$(this).appendTo("#choseFrom");
 			$(this).removeAttr("style");
+			var name = this.id;
+			var nameTag = "#" + name;
+			$(this).find("p").html (nameTag.health);
+			console.log("#" + this.id);
 		});
 	}
 
