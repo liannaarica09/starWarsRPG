@@ -220,9 +220,11 @@ $(document).ready(function() {
 			$(this).appendTo("#choseFrom");
 			$(this).removeAttr("style");
 			var name = this.id;
-			var nameTag = "#" + name;
-			$(this).find("p").html (nameTag.health);
-			console.log("#" + this.id);
+			$(this).find("p").html(name.health);
+			console.log(name);
+			console.log(typeof name);
+			debugger;
+			console.log(name.health);
 		});
 	}
 
