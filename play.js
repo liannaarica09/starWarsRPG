@@ -219,12 +219,10 @@ $(document).ready(function() {
 		$(".villian").each(function() {
 			$(this).appendTo("#choseFrom");
 			$(this).removeAttr("style");
-			var name = this.id;
+			var name = $(this).attr("data-name").toString();
 			$(this).find("p").html(name.health);
 			console.log(name);
 			console.log(typeof name);
-			debugger;
-			console.log(name.health);
 		});
 	}
 
