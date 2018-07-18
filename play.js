@@ -1,44 +1,49 @@
 
-$(document).ready(function() {
+$(document).ready(function () {
 
 	var voldy = {
-		name:"Voldemort",
-		id:"voldy",
-		health:120,
-		attack:15,
-		counterAttack:7,
+		name: "Voldemort",
+		id: "voldy",
+		fullHealth: 120,
+		health: 120,
+		attack: 15,
+		counterAttack: 7,
 	};
 
 	var magneto = {
-		name:"Magneto",
-		id:"magneto",
-		health:150,
-		attack:10,
-		counterAttack:9,
+		name: "Magneto",
+		id: "magneto",
+		fullHealth: 150,
+		health: 150,
+		attack: 10,
+		counterAttack: 9,
 	};
 
 	var vader = {
-		name:"Darth Vader",
-		id:"vader",
-		health:180,
-		attack:11,
-		counterAttack:13,
+		name: "Darth Vader",
+		id: "vader",
+		fullHealth: 180,
+		health: 180,
+		attack: 11,
+		counterAttack: 13,
 	};
 
 	var saruman = {
-		name:"Saruman",
-		id:"saruman",
-		health:100,
-		attack:15,
-		counterAttack:14,
+		name: "Saruman",
+		id: "saruman",
+		fullHealth: 100,
+		health: 100,
+		attack: 15,
+		counterAttack: 14,
 	};
 
 	var loki = {
-		name:"Loki",
+		name: "Loki",
 		id: "loki",
-		health:200,
-		attack:13,
-		counterAttack:17,
+		fullHealth: 200,
+		health: 200,
+		attack: 13,
+		counterAttack: 17,
 	};
 
 	var attackingVillian;
@@ -52,10 +57,9 @@ $(document).ready(function() {
 	console.log("Document ready");
 	alert("Chose your character!", 2000);
 
-	
 	//onClick for characters
 
-	$(".villian").on("click", function(){
+	$(".villian").on("click", function () {
 		if (!attackerChosen) {
 			console.log("villian not chosen");
 			var chosenOne = $(this).attr("data-name").toString();
@@ -63,25 +67,25 @@ $(document).ready(function() {
 
 			switch (chosenOne) {
 
-				case "loki" :
+				case "loki":
 					attackingVillian = loki;
 					break;
 
-				case "saruman" :
+				case "saruman":
 					attackingVillian = saruman;
-					break;	
+					break;
 
-				case "vader" :
+				case "vader":
 					attackingVillian = vader;
-					break;	
+					break;
 
-				case "magneto" :
+				case "magneto":
 					attackingVillian = magneto;
-					break;	
+					break;
 
-				case "voldy" :
-				attackingVillian = voldy;
-				break;	
+				case "voldy":
+					attackingVillian = voldy;
+					break;
 			}
 
 			attackerHealth = attackingVillian.health;
@@ -96,25 +100,25 @@ $(document).ready(function() {
 
 			switch (victim) {
 
-				case "loki" :
+				case "loki":
 					defendingVillian = loki;
 					break;
 
-				case "saruman" :
+				case "saruman":
 					defendingVillian = saruman;
-					break;	
+					break;
 
-				case "vader" :
+				case "vader":
 					defendingVillian = vader;
-					break;	
+					break;
 
-				case "magneto" :
+				case "magneto":
 					defendingVillian = magneto;
-					break;	
+					break;
 
-				case "voldy" :
+				case "voldy":
 					defendingVillian = voldy;
-					break;	
+					break;
 			}
 			defenderHealth = defendingVillian.health;
 			moveChar(victim);
@@ -127,7 +131,7 @@ $(document).ready(function() {
 	});
 
 	//move attacker or defender to correct area
-	function moveChar(charClicked){
+	function moveChar(charClicked) {
 		//if chooseing attacker (attacker hasn't been chosen already)
 		if (!attackerChosen) {
 			$("#" + charClicked).appendTo("#attackerArea");
@@ -136,7 +140,7 @@ $(document).ready(function() {
 			console.log("attacker moved");
 		}
 		//if attacker has been chosen, but defender hasn't
-		else if (attackerChosen && !defenderChosen){
+		else if (attackerChosen && !defenderChosen) {
 			$("#" + charClicked).appendTo("#defenderArea");
 			$("#" + charClicked).attr("style", "float:right; width:55%;");
 			$("#defenderArea").removeClass("invisible");
@@ -147,15 +151,15 @@ $(document).ready(function() {
 
 	//onClick for Attack Button
 
-	$("#attackBtn").on("click", function(){
+	$("#attackBtn").on("click", function () {
 		//set attack power
 		currentAttckPwr += attackingVillian.attack;
-		console.log("attack power is " + currentAttckPwr);
+		console.log(attackingVillian.name + " attack power is " + currentAttckPwr);
 
 		//attack defender
 		console.log("Attack!");
 		defenderHealth -= currentAttckPwr;
-		console.log("defender health is " + defenderHealth);
+		console.log(defendingVillian.name + " defender health is " + defenderHealth);
 
 		console.log(defendingVillian.id);
 		writeStats(defendingVillian.id, defenderHealth);
@@ -163,7 +167,7 @@ $(document).ready(function() {
 		//attack attacker
 		console.log("Counter attack!");
 		attackerHealth -= defendingVillian.counterAttack;
-		console.log("attacker health is " + attackerHealth);
+		console.log(attackingVillian.name + " attacker health is " + attackerHealth);
 
 		console.log(attackingVillian.id);
 		writeStats(attackingVillian.id, attackerHealth);
@@ -173,13 +177,13 @@ $(document).ready(function() {
 		defeatCheck();
 	});
 
-	function writeStats(villian, stat){
+	function writeStats(villian, stat) {
 		console.log("writeStats trigered");
 		$("#" + villian).find("p").html(stat);
 	}
 
 	//Win check 
-	function defeatCheck(){
+	function defeatCheck() {
 		if (defenderHealth <= 0) {
 			$("#defenderArea").find("div").prependTo("#defeatedArea");
 			$("#attackBtn").addClass("invisible");
@@ -193,8 +197,8 @@ $(document).ready(function() {
 	}
 
 	//Overall win check
-	function winCheck(){
-		if ($("#choseFrom").find("div").length === 0){
+	function winCheck() {
+		if ($("#choseFrom").find("div").length === 0) {
 			alert("You win! Get ready to chose another character...", 4000);
 			reset();
 		}
@@ -205,35 +209,36 @@ $(document).ready(function() {
 
 	//reset
 	function reset() {
-		console.log("reset");
-		attackingVillian = "";
-		attackerChosen = false;
-		defendingVillian = "";
-		defenderChosen = false;
-		currentAttckPwr = 0;
-		attackerHealth = 0;
-		defenderHealth = 0;
+		location.reload();
+		// console.log("reset");
+		// attackingVillian = "";
+		// attackerChosen = false;
+		// defendingVillian = "";
+		// defenderChosen = false;
+		// currentAttckPwr = 0;
+		// attackerHealth = 0;
+		// defenderHealth = 0;
 
-		$("#attackBtn").addClass("invisible");
+		// $("#attackBtn").addClass("invisible");
 
-		$(".villian").each(function() {
-			$(this).appendTo("#choseFrom");
-			$(this).removeAttr("style");
-			var name = $(this).attr("data-name").toString();
-			$(this).find("p").html(name.health);
-			console.log(name);
-			console.log(typeof name);
-			console.log(name.health);
-		});
+		// $(".villian").each(function () {
+		// 	$(this).appendTo("#choseFrom");
+		// 	$(this).removeAttr("style");
+		// 	var name = $(this).attr("data-name").toString();
+		// 	$(this).find("p").html(name.fullHealth);
+		// 	console.log(name);
+		// 	console.log(typeof name);
+		// 	console.log(name.fullHealth);
+		// });
 	}
 
-	function alert(alertText, time){
+	function alert(alertText, time) {
 		$("#alertArea").append(alertText);
 		$("#alertArea").removeClass("invisible");
-		setTimeout( function() {
-   			$("#alertArea").addClass("invisible");
-   			$("#alertArea").empty();
-   		}, time);
+		setTimeout(function () {
+			$("#alertArea").addClass("invisible");
+			$("#alertArea").empty();
+		}, time);
 	}
 
 
