@@ -135,14 +135,14 @@ $(document).ready(function () {
 		//if chooseing attacker (attacker hasn't been chosen already)
 		if (!attackerChosen) {
 			$("#" + charClicked).appendTo("#attackerArea");
-			$("#" + charClicked).attr("style", "float:left; width:55%;");
+			$("#" + charClicked).attr("style", "width:55%; cursor:auto;");
 			$("#attackerArea").removeClass("invisible");
 			console.log("attacker moved");
 		}
 		//if attacker has been chosen, but defender hasn't
 		else if (attackerChosen && !defenderChosen) {
 			$("#" + charClicked).appendTo("#defenderArea");
-			$("#" + charClicked).attr("style", "float:right; width:55%;");
+			$("#" + charClicked).attr("style", "width:55%; cursor:auto;");
 			$("#defenderArea").removeClass("invisible");
 			console.log("defender moved");
 			$("#attackBtn").removeClass("invisible");
@@ -172,7 +172,7 @@ $(document).ready(function () {
 		console.log(attackingVillian.id);
 		writeStats(attackingVillian.id, attackerHealth);
 
-		alert(attackingVillian.name + " did " + currentAttckPwr + " damage. " + defendingVillian.name + " did " + defendingVillian.counterAttack + " damage.", 2000);
+		alert(attackingVillian.name + " did " + currentAttckPwr + " damage. <br>" + defendingVillian.name + " did " + defendingVillian.counterAttack + " damage.", 2000);
 
 		defeatCheck();
 	});
@@ -192,7 +192,9 @@ $(document).ready(function () {
 		}
 		if (attackerHealth <= 0) {
 			alert("You lost! Try again...", 4000);
-			reset();
+			setTimeout(function () {
+				reset();
+			}, 4000)
 		}
 	}
 
@@ -200,7 +202,9 @@ $(document).ready(function () {
 	function winCheck() {
 		if ($("#choseFrom").find("div").length === 0) {
 			alert("You win! Get ready to chose another character...", 4000);
-			reset();
+			setTimeout(function () {
+				reset();
+			}, 4000)
 		}
 		else {
 			alert($("#defeatedArea").find("img").attr("alt").toString() + " has been defeated! Chose another openent.", 1000);

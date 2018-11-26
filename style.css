@@ -1,90 +1,123 @@
+/* $x-start: 0px;
+$x-off: 50px; */
+
 * {
 	box-sizing: border-box;
 }
 
 body {
-	width:100%;
+	width: 100%;
 	background-image: url("images/dark_wood.png");
 }
 
+#mainBody {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
 h2 {
-	font-size:6em;
+	font-size: 6em;
+	font-family: 'Uncial Antiqua', cursive;
 	background-color: rgba(0, 0, 255, 0.5);
 	text-align: center;
-	padding:15px;
+	padding: 15px;
 }
 
 img {
 	cursor: pointer;
-	width:100%;
-	margin:auto;
-	border-radius:14px 14px 0px 0px;
+	width: 100%;
+	margin: auto;
+	border-radius: 14px 14px 0px 0px;
 
 }
 
 #mainBody {
-	margin:auto;
-}
-
-#attackerArea {
-	float:left;
-}
-
-#defenderArea {
-	float:right;
+	margin: auto;
 }
 
 #attackerArea,
 #defenderArea {
-	width:50%;
+	box-sizing: border-box;
 	text-align: center;
+	padding: 5%;
+	font-size: 150%;
+}
+
+#attackerArea>p,
+#defenderArea>p {
+	color: white;
+}
+
+#atterckerArea img,
+#defenderArea img {
+	margin: 0 auto;
 }
 
 #attackBtn {
 	margin: 0 auto;
 	text-align: center;
 	cursor: pointer;
-	background-color: rgba(0, 200, 150, 1);
-	width:10%;
-	padding:20px;
-	clear:both;
-	position:absolute;
+	color: white;
+	background-color: rgb(0, 0, 99);
+	width: 10%;
+	padding: 20px;
+	clear: both;
+	position: absolute;
 	top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius:14px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 14px;
+	font-size: 150%;
+	box-shadow: 0.2em 0.2em 0.5em black;
+	-webkit-box-shadow: 0.2em 0.2em 0.5em black;
 }
 
 #choseFrom {
-	width:100%;
+	width: 100%;
 	text-align: center;
-	clear:both;
-	position:absolute;
-	bottom:100px;
+	clear: both;
+	position: absolute;
+	bottom: 100px;
 }
 
 .villian {
-	display:inline-block;
-	width: 19.2%;
+	box-sizing: border-box;
+	display: inline-block;
+	width: 16%;
 	background-color: rgba(255, 255, 255, 1);
-	border-radius:15px;
-	box-shadow: 1px 1px 2px lightGrey;
+	border: 1px solid rgb(49, 48, 48);
+	border-radius: 15px;
+	margin: 1%;
+	box-shadow: 0.2em 0.2em 0.5em black;
+	-webkit-box-shadow: 0.2em 0.2em 0.5em black;
+	font-family: 'Iceland', cursive;
+
+	transition: bottom 1s, left 1s, width 1s, height 1s, transform 1s;
+}
+
+#choseFrom .villian:hover {
+	width: 19%;
+	transform: rotate(-15deg);
 }
 
 #alertArea {
-	background-color: rgba(255, 0, 0, 1);
-	position:absolute;
-	padding:10%;
+	background-color: rgba(255, 255, 255, 1);
+	position: absolute;
+	padding: 10%;
 	top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: 'Iceland', cursive;
+	border: 1px solid #666;
+	border-radius: 15px;
+	font-size: 200%;
+	text-align: center;
 }
 
 .invisible {
-	display:none;
+	display: none;
 }
 
 .visible {
-	display:initial;
+	display: initial;
 }
-
